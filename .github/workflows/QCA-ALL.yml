@@ -1,37 +1,32 @@
 #CI项目
-name: QCA-ALL
+name   名字: QCA-ALL
 
 #CI计划
-on:
-  #自动编译：当Auto-Clean运行完成后
-  workflow_run:
-    workflows: ["Auto-Clean"]
-    types:
-      - completed
+on   在:
   #手动编译
   workflow_dispatch:
-    inputs:
-      PACKAGE:
+    inputs:   输入:
+      PACKAGE:   包:
         description: '手动调整插件包，多个请用\n符号隔开。'
-        required: false
-        type: string
-      TEST:
+        required: false   假
+        type: string   类型:字符串
+      TEST:   测试:
         description: '仅输出配置文件，不编译固件。'
-        default: 'false'
-        required: false
-        type: boolean
+        default: 'false'   默认值:“假”
+        required: false   假
+        type: boolean   类型:布尔
 
 #CI权限
-permissions: write-all
+permissions: write-all   权限:编写所有
 
 #CI任务
-jobs:
-  config:
-    name: ${{matrix.CONFIG}}
-    strategy:
-      fail-fast: false
+jobs:   工作:
+  config:   配置:
+    name: ${{matrix.CONFIG}}   名称:${{矩阵。配置}}
+    strategy:   策略:
+      fail-fast: false   假
       #max-parallel: 3
-      matrix:
+      matrix:   矩阵:
         CONFIG: [IPQ60XX-WIFI-YES, IPQ60XX-WIFI-NO, IPQ807X-WIFI-YES, IPQ807X-WIFI-NO]
         SOURCE: [VIKINGYFY/immortalwrt]
         BRANCH: [main]
