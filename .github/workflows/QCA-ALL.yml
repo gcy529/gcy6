@@ -1,8 +1,8 @@
 #CI项目
-name   名字: QCA-ALL
+name: QCA-ALL
 
 #CI计划
-on   在:
+on:
   #手动编译
   workflow_dispatch:
     inputs:   输入:
