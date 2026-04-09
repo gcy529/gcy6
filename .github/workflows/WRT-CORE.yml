@@ -146,7 +146,8 @@ jobs:
 
       - name: Update Feeds
         run: |
-          cd ./wrt/
+          cd ./wrt/         
+          echo 'src-git linkease https://github.com/linkease/istore.git' >> feeds.conf.default
 
           ./scripts/feeds update -a
           ./scripts/feeds install -a
